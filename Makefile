@@ -3,3 +3,6 @@ build:
 
 run: build
 	@./bin/fs
+
+test:
+	@go test ./... -v

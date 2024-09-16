@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -29,5 +30,22 @@ func CreateConnection() *sql.DB {
 	return db
 }
 
-func Home() {
+func Home(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("<h1>Welcome to API by me!<h1>"))
+	fmt.Println("get")
+}
+
+func GetStock(w http.ResponseWriter, r *http.Request) {
+}
+
+func GetAllStocks(w http.ResponseWriter, r *http.Request) {
+}
+
+func NewStock(w http.ResponseWriter, r *http.Request) {
+}
+
+func UpdateStock(w http.ResponseWriter, r *http.Request) {
+}
+
+func DeleteStock(w http.ResponseWriter, r *http.Request) {
 }

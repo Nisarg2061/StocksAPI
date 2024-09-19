@@ -2,11 +2,13 @@ package middleware
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
+	"github.com/Nisarg2061/StocksAPI/models"
 	"github.com/joho/godotenv"
 )
 
@@ -31,11 +33,23 @@ func CreateConnection() *sql.DB {
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("<h1>Welcome to API by me!<h1>"))
-	fmt.Println("get")
+	w.Write([]byte("<h1>Welcome to Stocks API!<h1>"))
 }
 
 func GetStock(w http.ResponseWriter, r *http.Request) {
+	var stock models.Stock
+
+	err := json.NewDecoder(r.Body).Decode(&stock)
+	check(err)
+
+	insertid := insertStock(stock)
+
+	res := models.Response{
+		ID:      insertid,
+		Message: "Stock inserted successfully!",
+	}
+
+	json.NewEncoder(w).Encode(res)
 }
 
 func GetAllStocks(w http.ResponseWriter, r *http.Request) {

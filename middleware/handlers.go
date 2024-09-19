@@ -1,65 +1,18 @@
 package middleware
 
-import (
-	"database/sql"
-	"encoding/json"
-	"fmt"
-	"log"
-	"net/http"
-	"os"
+import "github.com/Nisarg2061/StocksAPI/models"
 
-	"github.com/Nisarg2061/StocksAPI/models"
-	"github.com/joho/godotenv"
-)
-
-func check(e error) {
-	if e != nil {
-		log.Fatal(e)
-	}
+func insertStock(stock models.Stock) int64 {
 }
 
-func CreateConnection() *sql.DB {
-	err3 := godotenv.Load(".env")
-	check(err3)
-
-	db, err2 := sql.Open("postgress", os.Getenv("POSTGRESS_URL"))
-	check(err2)
-
-	err1 := db.Ping()
-	check(err1)
-
-	fmt.Println("Connection Established to POSTGRES....")
-	return db
+func getStock(id int64) (models.Stock, error) {
 }
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("<h1>Welcome to Stocks API!<h1>"))
+func getAllStocks() ([]models.Stock, error) {
 }
 
-func GetStock(w http.ResponseWriter, r *http.Request) {
-	var stock models.Stock
-
-	err := json.NewDecoder(r.Body).Decode(&stock)
-	check(err)
-
-	insertid := insertStock(stock)
-
-	res := models.Response{
-		ID:      insertid,
-		Message: "Stock inserted successfully!",
-	}
-
-	json.NewEncoder(w).Encode(res)
+func deleteStock(id int64) int64 {
 }
 
-func GetAllStocks(w http.ResponseWriter, r *http.Request) {
-}
-
-func NewStock(w http.ResponseWriter, r *http.Request) {
-}
-
-func UpdateStock(w http.ResponseWriter, r *http.Request) {
-}
-
-func DeleteStock(w http.ResponseWriter, r *http.Request) {
+func updateStock(id int64, stock models.Stock) int64 {
 }

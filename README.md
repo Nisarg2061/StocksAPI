@@ -3,19 +3,25 @@ This project is a simple stocks management system using Go and PostgreSQL.
 
 ## Project Structure
 ```
-├── .github               # GitHub-related configuration files
-├── middleware            # Middlewares for handling requests
-│   ├── handlers.go       # Request handlers
-│   └── middleware.go
-├── models                # Database models
-│   └── models.go
-├── router                # API routing
-│   └── router.go
-├── .env                  # Environment variables
-├── Makefile              # Makefile for running commands
-├── go.mod                # Go modules file
-├── go.sum                # Dependencies checksum
-└── main.go               # Application entry point
+.
+├── .github                # GitHub-related configuration files
+├── cmd                    # Contains the main application code
+│   ├── middleware         # Middlewares and Request handlers for handling requests
+│   │   ├── handlers.go  
+│   │   └── middleware.go
+│   ├── models             # Database models
+│   │   └── models.go
+│   ├── router             # API routing
+│   │   └── router.go
+│   └── main.go            # Application entry point
+├── .env                   # Environment variables
+├── .gitignore             # Gitignore file
+├── LICENSE                # License file
+├── Makefile               # Makefile for running commands
+├── README.md              # Project README
+├── go.mod                 # Go modules file
+├── go.sum                 # Dependencies checksum
+└── script.sql             # SQL script to set up the database
 ```
 
 ## Prerequisites

@@ -12,6 +12,7 @@ import (
 	"github.com/Nisarg2061/StocksAPI/models"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 )
 
 func check(text string, e error) {
@@ -24,8 +25,8 @@ func CreateConnection() *sql.DB {
 	err3 := godotenv.Load(".env")
 	check("Unable to get env file!", err3)
 
-	db, err2 := sql.Open("postgress", os.Getenv("POSTGRESS_URL"))
-	check("Unable to connect to postgress!", err2)
+	db, err := sql.Open("postgres", os.Getenv("POSTGRES_URL"))
+	check("Unable to connect to postgress!", err)
 
 	err1 := db.Ping()
 	check("Database connection failed", err1)

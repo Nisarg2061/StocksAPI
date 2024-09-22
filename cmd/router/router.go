@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/Nisarg2061/StocksAPI/middleware"
+	"github.com/Nisarg2061/StocksAPI/cmd/middleware"
 	"github.com/gorilla/mux"
 )
 

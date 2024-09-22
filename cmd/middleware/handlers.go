@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/Nisarg2061/StocksAPI/models"
+	"github.com/Nisarg2061/StocksAPI/cmd/models"
 )
 
 func insertStock(stock models.Stock) int64 {

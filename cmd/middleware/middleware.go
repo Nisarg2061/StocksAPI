@@ -9,7 +9,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/Nisarg2061/StocksAPI/models"
+	"github.com/Nisarg2061/StocksAPI/cmd/models"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"

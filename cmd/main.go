@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Nisarg2061/StocksAPI/router"
+	"github.com/Nisarg2061/StocksAPI/cmd/router"
 )
 
 func main() {

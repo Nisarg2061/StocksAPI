@@ -33,8 +33,7 @@ This project is a simple stocks management system using Go and PostgreSQL.
 ## Installation and Setup
 1. Clone the repository:
 ```
-git clone https://github.com/Nisarg2061/StocksAPI.git
-cd StocksAPI
+git clone https://github.com/Nisarg2061/StocksAPI.git && cd StocksAPI
 ```
 
 2. Set up the database:

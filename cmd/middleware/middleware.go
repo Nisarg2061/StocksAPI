@@ -69,7 +69,11 @@ func GetStock(w http.ResponseWriter, r *http.Request) {
 func GetAllStocks(w http.ResponseWriter, r *http.Request) {
 	stocks, err := getAllStocks()
 	check("Unable to get all stocks!", err)
-	json.NewEncoder(w).Encode(stocks)
+
+	encoder := json.NewEncoder(w)
+	encoder.SetIndent("", "    ") // Four spaces for indentation
+
+	encoder.Encode(stocks)
 }
 
 func UpdateStock(w http.ResponseWriter, r *http.Request) {

@@ -48,11 +48,11 @@ func getStock(id int64) (models.Stock, error) {
 	return stock, err
 }
 
-func getAllStocks() ([]models.Stock, error) {
+func getAllStocks() (map[int]models.Stock, error) {
 	db := CreateConnection()
 	defer db.Close()
 
-	var stocks []models.Stock
+	stocks := make(map[int]models.Stock)
 
 	sqlStatement := `SELECT * FROM stocks`
 
@@ -65,7 +65,7 @@ func getAllStocks() ([]models.Stock, error) {
 		var stock models.Stock
 		err := row.Scan(&stock.StockId, &stock.Name, &stock.Price, &stock.Company)
 		check("Unable to Scan the Row", err)
-		stocks = append(stocks, stock)
+		stocks[int(stock.StockId)] = stock
 	}
 
 	return stocks, err
